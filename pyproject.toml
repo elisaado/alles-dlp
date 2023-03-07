@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "alles-dlp"
+version = "0.1.0"
+description = ""
+authors = ["Eli Saado <eli5saado@gmail.com>"]
+readme = "README.md"
+packages = [{include = "alles_dlp"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.20.0"
+starlette = "^0.25.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "alles_dlp.main:start"

@@ -10,11 +10,17 @@ packages = [{include = "alles_dlp"}]
 python = "^3.10"
 uvicorn = "^0.20.0"
 starlette = "^0.25.0"
+yt-dlp = "^2023.3.4"
+validators = "^0.20.0"
 
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.2"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.4.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-start = "alles_dlp.main:start"
+start = "alles_dlp.main:start_dev"
+start_prod = "alles_dlp.main:start"

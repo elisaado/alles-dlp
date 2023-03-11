@@ -10,7 +10,12 @@ import os
 
 passwords = os.environ.get('ALLES_DLP_PASSWORDS').split(',')
 
-opts = {}
+opts = {
+    "quiet":    True,
+    "simulate": True,
+    "forceurl": True,
+}
+
 if os.path.exists('cookies/cookies.txt'):
     opts['cookiefile'] = 'cookies/cookies.txt'
     print('cookies loaded')
@@ -28,16 +33,17 @@ async def homepage(request: Request):
     if not url_validator(url):
         return JSONResponse({'error': 'invalid url'})
 
-    print(url)
     with yt_dlp.YoutubeDL(opts) as ydl:
-        info = ydl.sanitize_info(ydl.extract_info(url, download=False))
-        formats = (info['formats'])
+        info = ydl.sanitize_info(ydl.extract_info(url))
+
+        formats = info["formats"]
+
         viable = []
         if (len(formats) == 1):
             viable = formats
         else:
             viable = list(filter(
-                lambda format: ('vcodec' in format and format['vcodec'] != 'none') and (format['acodec'] != 'none' if 'acodec' in format else True), formats))
+                lambda format: (('vcodec' in format and format['vcodec'] != 'none') or ('video_ext' in format and format['video_ext'] != 'none')) and (format['acodec'] != 'none' if 'acodec' in format else True) and ("m3u" not in format['protocol'] if 'protocol' in format else True), formats))
 
         return JSONResponse({"data": viable})
 

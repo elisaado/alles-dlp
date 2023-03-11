@@ -37,7 +37,7 @@ async def homepage(request: Request):
             viable = formats
         else:
             viable = list(filter(
-                lambda format: format['vcodec'] != 'none' and (format['acodec'] != 'none' if 'acodec' in format else True), formats))
+                lambda format: ('vcodec' in format and format['vcodec'] != 'none') and (format['acodec'] != 'none' if 'acodec' in format else True), formats))
 
         return JSONResponse({"data": viable})
 

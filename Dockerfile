@@ -10,8 +10,8 @@ WORKDIR /app
 
 # install dependencies
 COPY poetry.lock pyproject.toml /app/
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-root --only main --no-interaction --no-ansi
+RUN poetry config virtualenvs.create false &&
+    poetry install --no-root --only main --no-interaction --no-ansi
 
 # copy project
 COPY alles_dlp /app/alles_dlp
@@ -23,6 +23,5 @@ EXPOSE 8000
 # copy entrypoint.sh
 COPY start.sh /app/start.sh
 
-# entry
-ENTRYPOINT ["/bin/sh"]
-CMD ["/app/start.sh"]
+# run
+CMD ["poetry", "run", "start"]

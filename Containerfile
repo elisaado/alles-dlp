@@ -10,8 +10,7 @@ WORKDIR /app
 
 # install dependencies
 COPY poetry.lock pyproject.toml /app/
-RUN poetry config virtualenvs.create false &&
-    poetry install --no-root --only main --no-interaction --no-ansi
+RUN poetry config virtualenvs.create false && poetry install --no-root --only main --no-interaction --no-ansi
 
 # copy project
 COPY alles_dlp /app/alles_dlp

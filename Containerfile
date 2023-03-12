@@ -19,8 +19,5 @@ VOLUME [ "/app/cookies" ]
 
 EXPOSE 8000
 
-# copy entrypoint.sh
-COPY start.sh /app/start.sh
-
 # run
 CMD ["poetry", "run", "start"]

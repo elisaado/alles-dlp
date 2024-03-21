@@ -10,8 +10,8 @@ packages = [{include = "alles_dlp"}]
 python = "^3.10"
 uvicorn = "^0.20.0"
 starlette = "^0.25.0"
-yt-dlp = "^2023.3.4"
 validators = "^0.20.0"
+yt-dlp = "^2024.3.10"
 
 
 [tool.poetry.group.dev.dependencies]

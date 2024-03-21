@@ -9,7 +9,7 @@ packages = [{include = "alles_dlp"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 uvicorn = "^0.20.0"
-starlette = "^0.25.0"
+starlette = "^0.27.0"
 validators = "^0.20.0"
 yt-dlp = "^2024.3.10"
 

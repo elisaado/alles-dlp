@@ -11,7 +11,7 @@ python = "^3.10"
 uvicorn = "^0.20.0"
 starlette = "^0.36.2"
 validators = "^0.20.0"
-yt-dlp = "^2024.3.10"
+yt-dlp = "^2024.7.16"
 
 
 [tool.poetry.group.dev.dependencies]

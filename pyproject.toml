@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "alles-dlp"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Eli Saado <eli5saado@gmail.com>"]
 readme = "README.md"
